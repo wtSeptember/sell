@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gzcstec.dataobject.mapper.SellerProductMapper">
+
+    <resultMap id="productInfo" type="com.gzcstec.dataobject.ProductInfo">
+        <id column="product_id" jdbcType="VARCHAR" property="productId"/>
+        <result column="product_name" jdbcType="VARCHAR" property="product_name"/>
+        <result column="product_price" jdbcType="DECIMAL" property="product_name"/>
+        <result column="product_stock" jdbcType="INTEGER" property="product_name"/>
+        <result column="categoryType" jdbcType="INTEGER" property="category_type"/>
+    </resultMap>
+
+    <update id="updateByObject" parameterType="com.gzcstec.dataobject.ProductInfo">
+        UPDATE product_info
+        set product_name = #{productName},
+        product_price = #{productPrice},
+        product_stock = #{productStock},
+        category_type = #{categoryType}
+        where product_id = #{productId}
+    </update>
+</mapper>
